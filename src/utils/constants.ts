@@ -13,10 +13,15 @@ export const handleClick = ({ clientX, clientY }: MouseEvent) => {
   })`
     const destiny = document.getElementsByClassName('chosen')[0].id;
     const mass = returnDestinyMass(destiny);
+    const count = document.getElementById('count');
+    if(count){
+      count.innerText = `${+count.innerText + 1}`;
+    }
   circles.push(createCircle({ x, y, radius, color ,mass}))
 }
 export const gravity = 0.5
-export const mass = 7
+export const mass = 7;
+export const notAllowed = 'not-allowed';
 
 export const circles: ICircle[] = []
 

@@ -3,12 +3,13 @@ import {
   circles,
   ctx,
   handleClick,
-  isLimitPassed,
+  isLimitPassed, notAllowed,
 } from '@/utils/constants'
 import '@/listeners/events'
 const animate = () => {
   if (isLimitPassed(circles)) {
-    canvas.removeEventListener('click', handleClick)
+    canvas.removeEventListener('click', handleClick);
+    canvas.style.cursor = notAllowed;
   }
   requestAnimationFrame(animate)
   if (ctx) {
